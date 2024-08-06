@@ -17,10 +17,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-
 - task: DockerCompose@1
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'Docker hub'
     dockerComposeFile: 'docker-compose.yml'
+    projectName: 'semacon_backend'
     action: 'Build services'
