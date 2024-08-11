@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    image: semacon-django
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    depends_on:
+      - banco
+  banco:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgresuser
+      - POSTGRES_PASSWORD=postgrespassword
+      - POSTGRES_DB=semacon
+
+volumes:
+  postgres_data:

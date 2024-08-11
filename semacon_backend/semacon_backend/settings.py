@@ -14,11 +14,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'semacon'#os.environ.get("SECRET_KEY")
+SECRET_KEY = 'semacon' #os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = os.environ.get("DEBUG", default=0)
+DEBUG =  1 #os.environ.get("DEBUG", default=0)
 
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1", "68.183.63.19"]
@@ -159,12 +159,12 @@ ASGI_APPLICATION = 'semacon_backend.asgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get("SQL_ENGINE"),
-        'NAME': os.environ.get("SQL_DATABASE"),
-        'USER': os.environ.get("SQL_USER"),
-        'PASSWORD': os.environ.get("SQL_PASSWORD"),
-        'HOST': os.environ.get("SQL_HOST"),
-        'PORT': os.environ.get("SQL_PORT"),
+        'ENGINE': 'django.db.backends.postgresql', #os.environ.get("SQL_ENGINE"),
+        'NAME': 'semacon', #os.environ.get("SQL_DATABASE"),
+        'USER': 'postgresuser', #os.environ.get("SQL_USER"),
+        'PASSWORD': 'postgrespassword', #os.environ.get("SQL_PASSWORD"),
+        'HOST': 'banco', #os.environ.get("SQL_HOST"),
+        'PORT': '5432', #os.environ.get("SQL_PORT"),
 
     }
 }
