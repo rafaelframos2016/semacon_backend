@@ -19,3 +19,9 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'Digital Ocean Droplet'
+    contents: 'docker-compose.test.yml'
+    targetFolder: '/home/rafael'
+    readyTimeout: '20000'
