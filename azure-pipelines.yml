@@ -22,6 +22,6 @@ steps:
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'Digital Ocean Droplet'
-    contents: 'docker-compose.test.yml'
+    contents: '**'
     targetFolder: '/home/rafael'
     readyTimeout: '20000'
