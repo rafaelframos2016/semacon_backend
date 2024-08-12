@@ -10,13 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker hub'
@@ -26,3 +19,9 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'Digital Ocean Droplet'
+    contents: '**'
+    targetFolder: '/home/rafael'
+    readyTimeout: '20000'
