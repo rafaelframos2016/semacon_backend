@@ -15,3 +15,9 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'DO-ubuntu-01'
+    runOptions: 'script'
+    scriptPath: '/home/rafael/deploy_django.sh'
+    readyTimeout: '20000'
