@@ -18,5 +18,5 @@ steps:
   inputs:
     sshEndpoint: 'DO-ubuntu-01'
     runOptions: 'inline'
-    inline: 'cd /home/rafael;./deploy_django.sh'
+    inline: 'cd /home/rafael;docker compose up -d >> /dev/null'
     readyTimeout: '20000'
