@@ -5,19 +5,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
-- task: Docker@2
-  inputs:
-    containerRegistry: 'Docker Hub'
-    repository: 'c100/azure-container'
-    command: 'buildAndPush'
-    Dockerfile: 'semacon_backend/Dockerfile'
-    tags: |
-      $(Build.BuildId)
-      latest
+#- task: Docker@2
+#  inputs:
+#    containerRegistry: 'Docker Hub'
+#    repository: 'c100/azure-container'
+#    command: 'buildAndPush'
+#    Dockerfile: 'semacon_backend/Dockerfile'
+#    tags: |
+#      $(Build.BuildId)
+#      latest
 - task: SSH@0
   inputs:
     sshEndpoint: 'DO-ubuntu-01'
     runOptions: 'inline'
-    inline: cd /home/rafael;docker compose up -d'
+    inline: 'cd /home/rafael;docker compose up -d'
     readyTimeout: '20000'
