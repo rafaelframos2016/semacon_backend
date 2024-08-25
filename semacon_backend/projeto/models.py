@@ -13,6 +13,7 @@ class Projeto(models.Model):
     area_total = models.DecimalField(max_digits=10, decimal_places=3, blank=True, null=True)
     imagem = models.ImageField(upload_to='uploads/projetos', blank=True, null=True)
     data_criacao = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    responsavel=models.TextField(blank=True,Null=True)
 
     def imagem_url(self):
         return f'{settings.WEBSITE_URL}{self.imagem.url}'  

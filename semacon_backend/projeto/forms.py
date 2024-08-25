@@ -11,5 +11,6 @@ class ProjetoForm(ModelForm):
             'niveis',
             'area_total',
             'imagem',
+            'responsavel',
 
         }
