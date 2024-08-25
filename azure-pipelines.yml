@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker Hub'
+    repository: 'c100/azure-container'
+    command: 'buildAndPush'
+    Dockerfile: 'semacon_backend/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'DO-ubuntu-01'
+    runOptions: 'inline'
+    inline: 'cd /home/rafael;./deploy_django.sh'
+    readyTimeout: '20000'
+    
