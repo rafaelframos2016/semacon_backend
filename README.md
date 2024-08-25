@@ -1,5 +1,5 @@
 # Sistema Semacon 
-## Projeto backend django rest framework
+## Projeto backend django rest framewor
 
 * comando para criar um superuser no container
 ```
